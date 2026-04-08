@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Reveal from './Reveal';
+import aboutImg from '../assets/Gemini_Generated_Image_g2lor1g2lor1g2lo.png';
 
 const About = () => {
   return (
@@ -13,9 +14,10 @@ const About = () => {
               whileHover={{ scale: 1.02 }}
               className="rounded-3xl shadow-2xl w-full" 
               data-alt="Abstract 3D digital engineering visualization showing complex network connections, neural pathways, and technological nodes in a clean architectural style" 
-              src="src\assets\Gemini_Generated_Image_g2lor1g2lor1g2lo.png" 
+              src={aboutImg} 
             />
           </div>
+
           <div className="lg:w-1/2">
             <Reveal>
               <h2 className="font-headline font-bold text-4xl mb-8 text-primary">Why Choose WebTantu</h2>

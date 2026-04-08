@@ -108,21 +108,24 @@ const AuditModal = ({ isOpen, type = 'audit', onClose }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div 
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-4 sm:p-6 overflow-y-auto scrollbar-hide"
           variants={overlayVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
         >
+
           <div className="absolute inset-0 bg-on-surface/40" onClick={onClose}></div>
 
           <motion.div 
-            className="relative bg-surface w-full max-w-5xl max-h-[90vh] rounded-3xl sm:rounded-[2.5rem] shadow-2xl flex flex-col md:flex-row z-10 overflow-hidden"
+            className="relative bg-surface w-full max-w-5xl my-auto rounded-3xl sm:rounded-[2.5rem] shadow-2xl flex flex-col md:flex-row z-10 overflow-hidden"
             variants={modalVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
           >
+
+
             {/* Close Button */}
             <button 
               onClick={onClose}
@@ -160,7 +163,9 @@ const AuditModal = ({ isOpen, type = 'audit', onClose }) => {
             </div>
 
             {/* Right Side Form */}
-            <div className="p-8 md:p-10 lg:p-12 md:w-7/12 bg-surface flex flex-col justify-start overflow-y-auto scrollbar-thin scrollbar-thumb-outline-variant/30 scrollbar-track-surface">
+            <div className="p-8 md:p-10 lg:p-12 md:w-7/12 bg-surface flex flex-col justify-start scrollbar-thin scrollbar-thumb-outline-variant/30 scrollbar-track-surface">
+
+
               
               {submitStatus === 'success' ? (
                 <motion.div 

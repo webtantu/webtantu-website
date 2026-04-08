@@ -23,10 +23,11 @@ const CallToAction = ({ onOpenContact, onOpenAudit }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={onOpenAudit}
-              className="px-10 py-5 bg-primary text-on-primary rounded-xl font-bold text-lg hover:bg-primary-container transition-all shadow-lg relative z-10"
+              className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 bg-primary text-on-primary rounded-xl font-bold text-lg hover:bg-primary-container transition-all shadow-lg relative z-10"
             >
               Request Free Audit
             </motion.button>
+
           </div>
         </Reveal>
       </section>
@@ -37,12 +38,12 @@ const CallToAction = ({ onOpenContact, onOpenAudit }) => {
           <div className="max-w-4xl mx-auto">
             <h2 className="font-headline font-black text-5xl mb-6 text-primary leading-tight">Let’s Build, Grow, and Automate Your Business</h2>
             <p className="text-xl text-on-surface-variant mb-12">Stop struggling with slow growth and missed opportunities. Let’s create a system that actually supports your business.</p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onOpenContact}
-                className="px-10 py-5 bg-primary-container text-on-primary rounded-xl font-bold text-lg shadow-xl"
+                className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 bg-primary-container text-on-primary rounded-xl font-bold text-lg shadow-xl"
               >
                 Get Started
               </motion.button>
@@ -50,11 +51,12 @@ const CallToAction = ({ onOpenContact, onOpenAudit }) => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onOpenContact}
-                className="px-10 py-5 border-2 border-primary-container text-primary-container rounded-xl font-bold text-lg hover:bg-surface-container transition-all"
+                className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 border-2 border-primary-container text-primary-container rounded-xl font-bold text-lg hover:bg-surface-container transition-all"
               >
                 Contact Us
               </motion.button>
             </div>
+
           </div>
         </Reveal>
       </section>

@@ -37,13 +37,13 @@ const Hero = ({ onOpenContact, onOpenAudit }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap gap-4 mb-12"
+            className="flex flex-col sm:flex-row gap-4 mb-12"
           >
             <motion.button 
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
               onClick={onOpenContact}
-              className="px-8 py-4 bg-primary-container text-on-primary rounded-xl font-bold shadow-lg hover:shadow-xl transition-all"
+              className="w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 bg-primary-container text-on-primary rounded-xl font-bold shadow-lg hover:shadow-xl transition-all"
             >
               Start Your Project
             </motion.button>
@@ -51,11 +51,12 @@ const Hero = ({ onOpenContact, onOpenAudit }) => {
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
               onClick={onOpenAudit}
-              className="px-8 py-4 border-2 border-primary-container text-primary-container rounded-xl font-bold hover:bg-surface-container transition-all"
+              className="w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 border-2 border-primary-container text-primary-container rounded-xl font-bold hover:bg-surface-container transition-all"
             >
               Book Free Consultation
             </motion.button>
           </motion.div>
+
           
           <motion.div 
             initial={{ opacity: 0 }}
