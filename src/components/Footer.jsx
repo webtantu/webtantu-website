@@ -3,7 +3,7 @@ import logo from '../assets/logo.png';
 
 const Footer = ({ onOpenPrivacy, onOpenTerms }) => {
   return (
-    <section className="bg-emerald-950 dark:bg-black w-full py-12 px-6 sm:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-start text-emerald-50 font-['Inter'] text-sm tracking-wide" id="contact">
+    <footer className="bg-emerald-950 dark:bg-black w-full py-12 px-6 sm:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-start text-emerald-50 font-['Inter'] text-sm tracking-wide" id="contact">
       <div className="space-y-6">
         <div className="flex items-center gap-3">
           <img src={logo} alt="WebTantu Logo" className="h-12 w-auto object-contain scale-[1.3] transform origin-left" />
@@ -30,7 +30,7 @@ const Footer = ({ onOpenPrivacy, onOpenTerms }) => {
         </div>
         <p className="text-emerald-200/60 md:text-right">© 2024 WebTantu. Architectural Digital Solutions.</p>
       </div>
-    </section>
+    </footer>
   );
 };
 

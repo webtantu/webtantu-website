@@ -61,25 +61,25 @@ const Features = () => {
               <Reveal delay={0.1}>
                 <motion.div whileHover={{ scale: 1.02 }} className="bg-primary p-8 rounded-2xl text-on-primary flex flex-col justify-between h-full">
                   <span className="material-symbols-outlined text-4xl mb-6">speed</span>
-                  <h4 className="text-2xl font-bold">Faster website performance</h4>
+                  <h3 className="text-2xl font-bold">Faster website performance</h3>
                 </motion.div>
               </Reveal>
               <Reveal delay={0.2}>
                 <motion.div whileHover={{ scale: 1.02 }} className="bg-secondary-container p-8 rounded-2xl text-on-secondary-container flex flex-col justify-between h-full">
                   <span className="material-symbols-outlined text-4xl mb-6">touch_app</span>
-                  <h4 className="text-2xl font-bold">Better user experience</h4>
+                  <h3 className="text-2xl font-bold">Better user experience</h3>
                 </motion.div>
               </Reveal>
               <Reveal delay={0.3}>
                 <motion.div whileHover={{ scale: 1.02 }} className="bg-surface-container-high p-8 rounded-2xl flex flex-col justify-between h-full">
                   <span className="material-symbols-outlined text-4xl mb-6 text-primary">search_insights</span>
-                  <h4 className="text-2xl font-bold">Increased visibility on Google</h4>
+                  <h3 className="text-2xl font-bold">Increased visibility on Google</h3>
                 </motion.div>
               </Reveal>
               <Reveal delay={0.4}>
                 <motion.div whileHover={{ scale: 1.02 }} className="bg-tertiary-container p-8 rounded-2xl text-on-tertiary flex flex-col justify-between h-full">
                   <span className="material-symbols-outlined text-4xl mb-6">hub</span>
-                  <h4 className="text-2xl font-bold">Stronger social presence</h4>
+                  <h3 className="text-2xl font-bold">Stronger social presence</h3>
                 </motion.div>
               </Reveal>
             </div>
@@ -88,7 +88,7 @@ const Features = () => {
               <Reveal delay={0.5}>
                 <motion.div whileHover={{ scale: 1.02 }} className="bg-primary-container p-8 rounded-2xl text-on-primary flex flex-col justify-center text-center h-full w-full">
                   <span className="material-symbols-outlined text-6xl mb-6">smart_toy</span>
-                  <h4 className="text-3xl font-bold mb-4">AI Agents and Automation</h4>
+                  <h3 className="text-3xl font-bold mb-4">AI Agents and Automation</h3>
                   <p className="text-on-primary-container">Workflows that work while you sleep, capturing and nurturing every opportunity.</p>
                 </motion.div>
               </Reveal>

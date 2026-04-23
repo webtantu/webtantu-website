@@ -15,7 +15,7 @@ const ProblemSolution = () => {
           
           <Reveal delay={0.1} y={0}>
             <div>
-              <h3 className="text-3xl font-headline font-bold mb-10">The Challenges</h3>
+              <h2 className="text-3xl font-headline font-bold mb-10">The Challenges</h2>
               <ul className="space-y-8">
                 {[
                   { icon: 'cancel', title: 'Slow websites', desc: 'Losing customers before they even see your offer.' },
@@ -33,7 +33,7 @@ const ProblemSolution = () => {
                   >
                     <span className="material-symbols-outlined text-error mt-1">{item.icon}</span>
                     <div>
-                      <h5 className="font-bold text-xl">{item.title}</h5>
+                      <h3 className="font-bold text-xl">{item.title}</h3>
                       <p className="text-on-primary-container/80">{item.desc}</p>
                     </div>
                   </motion.li>
@@ -44,7 +44,7 @@ const ProblemSolution = () => {
           
           <Reveal delay={0.3} y={0}>
             <div>
-              <h3 className="text-3xl font-headline font-bold mb-10">How WebTantu Solves Them</h3>
+              <h2 className="text-3xl font-headline font-bold mb-10">How WebTantu Solves Them</h2>
               <ul className="space-y-8">
                 {[
                   { icon: 'check_circle', title: 'High-performance websites', desc: 'Optimized for speed and high conversion rates.' },
@@ -62,7 +62,7 @@ const ProblemSolution = () => {
                   >
                     <span className="material-symbols-outlined text-secondary-container mt-1">{item.icon}</span>
                     <div>
-                      <h5 className="font-bold text-xl">{item.title}</h5>
+                      <h3 className="font-bold text-xl">{item.title}</h3>
                       <p className="text-secondary-fixed-dim">{item.desc}</p>
                     </div>
                   </motion.li>

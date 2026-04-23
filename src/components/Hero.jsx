@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Hero = ({ onOpenContact, onOpenAudit }) => {
   return (
-    <section id="home" className="relative pt-40 pb-24 px-6 overflow-hidden hero-gradient">
+    <header id="home" className="relative pt-40 pb-24 px-6 overflow-hidden hero-gradient">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">
           <motion.span 
@@ -74,7 +74,7 @@ const Hero = ({ onOpenContact, onOpenAudit }) => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative z-10 rounded-2xl overflow-hidden shadow-2xl"
           >
-            <img className="w-full h-auto" data-alt="Dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKhJHEOrxZ4bxsmE_Yjhdf20ORyCCmGhPycxXbbsheKSHLv-OKXUxe8nM8jB_f-PlawSVxx7E2LTM5Wfy_9s0wOFa8XjVMIpaQUiG8_DEAFx6di8rgyZNMf4FzaZQXhVlP3JYpPysa0WbNzZpMhlhAkwHjG4-cMzUiDvfDiMGZSqICLlcrx5tllayF7hxI5IEZ-zvl_EjBOe-Gmu_5-LN-G-ULKfkVGrnVEC8VpyYr9ujA4GXCHcaLcTKmGEs5HMChdP3_mGIDbhSN" />
+            <img className="w-full h-auto" alt="Dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKhJHEOrxZ4bxsmE_Yjhdf20ORyCCmGhPycxXbbsheKSHLv-OKXUxe8nM8jB_f-PlawSVxx7E2LTM5Wfy_9s0wOFa8XjVMIpaQUiG8_DEAFx6di8rgyZNMf4FzaZQXhVlP3JYpPysa0WbNzZpMhlhAkwHjG4-cMzUiDvfDiMGZSqICLlcrx5tllayF7hxI5IEZ-zvl_EjBOe-Gmu_5-LN-G-ULKfkVGrnVEC8VpyYr9ujA4GXCHcaLcTKmGEs5HMChdP3_mGIDbhSN" />
           </motion.div>
           
           <motion.div 
@@ -97,7 +97,7 @@ const Hero = ({ onOpenContact, onOpenAudit }) => {
           </motion.div>
         </div>
       </div>
-    </section>
+    </header>
   );
 };
 

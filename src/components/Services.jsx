@@ -26,7 +26,7 @@ const Services = () => {
                 className="p-8 bg-surface-container-lowest rounded-2xl shadow-[0px_8px_16_rgba(0,52,43,0.04)] h-full"
               >
                 <span className="material-symbols-outlined text-primary mb-6 text-3xl">{item.icon}</span>
-                <h4 className="font-bold text-xl mb-3">{item.title}</h4>
+                <h3 className="font-bold text-xl mb-3">{item.title}</h3>
                 <p className="text-on-surface-variant text-sm">{item.desc}</p>
               </motion.div>
             </Reveal>

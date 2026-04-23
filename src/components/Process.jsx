@@ -36,7 +36,7 @@ const Process = () => {
                 >
                   <span className="font-headline font-black text-primary">{item.num}</span>
                 </motion.div>
-                <h4 className="font-bold text-xl mb-2">{item.title}</h4>
+                <h3 className="font-bold text-xl mb-2">{item.title}</h3>
                 <p className="text-sm text-on-surface-variant">{item.desc}</p>
               </div>
             </Reveal>

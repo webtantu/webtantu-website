@@ -13,7 +13,7 @@ const About = () => {
             <motion.img 
               whileHover={{ scale: 1.02 }}
               className="rounded-3xl shadow-2xl w-full" 
-              data-alt="Abstract 3D digital engineering visualization showing complex network connections, neural pathways, and technological nodes in a clean architectural style" 
+              alt="Abstract 3D digital engineering visualization showing complex network connections, neural pathways, and technological nodes in a clean architectural style" 
               src={aboutImg} 
             />
           </div>
@@ -33,7 +33,7 @@ const About = () => {
                   <div className="flex items-center gap-4">
                     <span className="material-symbols-outlined text-secondary text-3xl">{item.icon}</span>
                     <div>
-                      <h5 className="font-bold text-lg">{item.title}</h5>
+                      <h3 className="font-bold text-lg">{item.title}</h3>
                       <p className="text-on-surface-variant">{item.desc}</p>
                     </div>
                   </div>
