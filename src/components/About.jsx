@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Reveal from './Reveal';
 import aboutImg from '../assets/Gemini_Generated_Image_g2lor1g2lor1g2lo.png';
 
@@ -10,12 +13,17 @@ const About = () => {
       <section className="py-24 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
-            <motion.img 
+            <motion.div 
               whileHover={{ scale: 1.02 }}
-              className="rounded-3xl shadow-2xl w-full" 
-              alt="Abstract 3D digital engineering visualization showing complex network connections, neural pathways, and technological nodes in a clean architectural style" 
-              src={aboutImg} 
-            />
+              className="rounded-3xl shadow-2xl w-full overflow-hidden"
+            >
+              <Image 
+                src={aboutImg} 
+                alt="Abstract 3D digital engineering visualization showing complex network connections, neural pathways, and technological nodes in a clean architectural style" 
+                className="w-full h-auto"
+                priority
+              />
+            </motion.div>
           </div>
 
           <div className="lg:w-1/2">

@@ -1,7 +1,14 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useModal } from '@/contexts/ModalContext';
+import { useRouter } from 'next/navigation';
 
-const Hero = ({ onOpenContact, onOpenAudit }) => {
+const Hero = () => {
+  const { openConsultation, openAudit } = useModal();
+  const router = useRouter();
+
   return (
     <header id="home" className="relative pt-40 pb-24 px-6 overflow-hidden hero-gradient">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -21,7 +28,7 @@ const Hero = ({ onOpenContact, onOpenAudit }) => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="font-headline font-extrabold text-5xl lg:text-7xl leading-[1.1] text-primary tracking-tight mb-6"
           >
-            We Build, Grow, and Automate Your Digital Presence
+            Build, Grow & Automate Your Digital Presence
           </motion.h1>
           
           <motion.p 
@@ -30,7 +37,7 @@ const Hero = ({ onOpenContact, onOpenAudit }) => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg text-on-surface-variant max-w-2xl mb-8 leading-relaxed"
           >
-            We help startups and businesses build high-performing websites, grow online with SEO and content, and automate operations using AI-powered solutions. Designed for startups and businesses that need performance, visibility, and scalability from day one.
+            WebTantu helps businesses build high-performing websites, grow with SEO-led systems, and automate operations using AI-powered workflows designed for scalable digital growth.
           </motion.p>
           
           <motion.div 
@@ -42,18 +49,18 @@ const Hero = ({ onOpenContact, onOpenAudit }) => {
             <motion.button 
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              onClick={onOpenContact}
+              onClick={openConsultation}
               className="w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 bg-primary-container text-on-primary rounded-xl font-bold shadow-lg hover:shadow-xl transition-all"
             >
-              Start Your Project
+              Get Free Consultation
             </motion.button>
             <motion.button 
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              onClick={onOpenAudit}
+              onClick={openAudit}
               className="w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 border-2 border-primary-container text-primary-container rounded-xl font-bold hover:bg-surface-container transition-all"
             >
-              Book Free Consultation
+              Request Free Audit
             </motion.button>
           </motion.div>
 

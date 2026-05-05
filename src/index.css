@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/container-queries";
+@plugin "@tailwindcss/typography";
 
 @theme {
   --color-secondary-fixed-dim: #84d5c5;
@@ -51,11 +52,11 @@
   --color-on-tertiary: #ffffff;
   --color-on-secondary-fixed-variant: #005046;
 
-  --font-headline: "Manrope", sans-serif;
-  --font-body: "Inter", sans-serif;
-  --font-label: "Inter", sans-serif;
-  --font-manrope: "Manrope", sans-serif;
-  --font-inter: "Inter", sans-serif;
+  --font-headline: var(--font-manrope), "Manrope", sans-serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
+  --font-label: var(--font-inter), "Inter", sans-serif;
+  --font-manrope: var(--font-manrope), "Manrope", sans-serif;
+  --font-inter: var(--font-inter), "Inter", sans-serif;
 
   --radius-DEFAULT: 0.125rem;
   --radius-lg: 0.25rem;
@@ -76,4 +77,13 @@
 body {
     background-color: var(--color-surface);
     color: var(--color-on-surface);
+}
+
+/* Global Form Overrides */
+input[type="radio"] {
+    @apply accent-primary;
+}
+
+input[type="radio"]:checked {
+    background-color: var(--color-primary);
 }

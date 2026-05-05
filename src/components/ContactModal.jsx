@@ -1,8 +1,8 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { countries } from '../utils/countries';
-
-const CONTACT_SCRIPT_URL = import.meta.env.VITE_CONTACT_SCRIPT_URL;
 
 const ContactModal = ({ isOpen, onClose }) => {
   
@@ -18,7 +18,8 @@ const ContactModal = ({ isOpen, onClose }) => {
     dialCode: '+1',
     phoneNumber: '',
     socialHandle: '',
-    message: ''
+    message: '',
+    website_url: '' // Honeypot field
   });
 
   const handleChange = (e) => {
@@ -37,15 +38,19 @@ const ContactModal = ({ isOpen, onClose }) => {
     formPayload.append("phone", `${formData.dialCode} ${formData.phoneNumber}`);
     formPayload.append("socialHandle", formData.socialHandle || "Not Provided");
     formPayload.append("message", formData.message);
+    formPayload.append("website_url", formData.website_url); // Honeypot
     formPayload.append("sourceButton", "General Contact");
-    formPayload.append("secret", import.meta.env.VITE_FORM_SECRET); // Using the same secret
+    formPayload.append("sourceButton", "General Contact");
 
     try {
-      await fetch(CONTACT_SCRIPT_URL, {
+      const response = await fetch('/api/contact', {
         method: "POST",
-        mode: "no-cors",
         body: formPayload
       });
+
+      if (!response.ok) {
+        throw new Error('Unable to submit contact form.');
+      }
 
       // no-cors means opaque response, if network succeeds we assume success
       setSubmitStatus('success');
@@ -191,6 +196,11 @@ const ContactModal = ({ isOpen, onClose }) => {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 max-w-xl mx-auto w-full">
+                  {/* Honeypot field - hidden from users */}
+                  <input 
+                    type="text" name="website_url" tabIndex="-1" autoComplete="off" 
+                    className="hidden" value={formData.website_url} onChange={handleChange} 
+                  />
                   {submitStatus === 'error' && (
                     <motion.div 
                       initial={{ opacity: 0, y: -10 }} 

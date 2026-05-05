@@ -1,8 +1,15 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import Reveal from './Reveal';
+import { useModal } from '@/contexts/ModalContext';
+import { useRouter } from 'next/navigation';
 
-const CallToAction = ({ onOpenContact, onOpenAudit }) => {
+const CallToAction = () => {
+  const { openConsultation, openAudit } = useModal();
+  const router = useRouter();
+
   return (
     <>
       {/* Free Audit */}
@@ -22,7 +29,7 @@ const CallToAction = ({ onOpenContact, onOpenAudit }) => {
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={onOpenAudit}
+              onClick={openAudit}
               className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 bg-primary text-on-primary rounded-xl font-bold text-lg hover:bg-primary-container transition-all shadow-lg relative z-10"
             >
               Request Free Audit
@@ -42,7 +49,7 @@ const CallToAction = ({ onOpenContact, onOpenAudit }) => {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={onOpenContact}
+                onClick={openConsultation}
                 className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 bg-primary-container text-on-primary rounded-xl font-bold text-lg shadow-xl"
               >
                 Get Started
@@ -50,7 +57,7 @@ const CallToAction = ({ onOpenContact, onOpenAudit }) => {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={onOpenContact}
+                onClick={() => router.push('/contact')}
                 className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 border-2 border-primary-container text-primary-container rounded-xl font-bold text-lg hover:bg-surface-container transition-all"
               >
                 Contact Us

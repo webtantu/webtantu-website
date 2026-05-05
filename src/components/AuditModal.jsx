@@ -1,9 +1,10 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { countries } from '../utils/countries';
 
 // Use Vite environment variables for security
-const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
-
 const AuditModal = ({ isOpen, type = 'audit', onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -12,13 +13,15 @@ const AuditModal = ({ isOpen, type = 'audit', onClose }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    phone: '',
+    dialCode: '+1',
+    phoneNumber: '',
     company: '',
     website: '',
     serviceNeeded: '',
     requirement: '',
     currentSituation: '',
-    contactMethod: 'Email'
+    contactMethod: 'Email',
+    website_url: '' // Honeypot field
   });
 
   const handleChange = (e) => {
@@ -34,19 +37,25 @@ const AuditModal = ({ isOpen, type = 'audit', onClose }) => {
     // Prepare data using FormData as requested
     const formPayload = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
-      formPayload.append(key, value);
+      if (key !== 'dialCode' && key !== 'phoneNumber') {
+        formPayload.append(key, value);
+      }
     });
-    // Add the required security field from environment variables
-    formPayload.append("secret", import.meta.env.VITE_FORM_SECRET);
+    formPayload.append("website_url", formData.website_url); // Honeypot
+    // Add combined phone field
+    formPayload.append('phone', `${formData.dialCode} ${formData.phoneNumber}`);
     // Add the source button type for tracking in Google Sheets
     formPayload.append("sourceButton", type);
 
     try {
-      await fetch(GOOGLE_SCRIPT_URL, {
+      const response = await fetch('/api/audit', {
         method: "POST",
-        mode: "no-cors",
         body: formPayload
       });
+
+      if (!response.ok) {
+        throw new Error('Unable to submit audit form.');
+      }
 
       // no-cors means opaque response, if network succeeds we assume success
       setSubmitStatus('success');
@@ -184,6 +193,11 @@ const AuditModal = ({ isOpen, type = 'audit', onClose }) => {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 max-w-xl mx-auto w-full my-auto">
+                  {/* Honeypot field - hidden from users */}
+                  <input 
+                    type="text" name="website_url" tabIndex="-1" autoComplete="off" 
+                    className="hidden" value={formData.website_url} onChange={handleChange} 
+                  />
                   {submitStatus === 'error' && (
                     <motion.div 
                       initial={{ opacity: 0, y: -10 }} 
@@ -217,12 +231,28 @@ const AuditModal = ({ isOpen, type = 'audit', onClose }) => {
                     </div>
                     <div>
                       <label className="block text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70 mb-1.5">Phone / WhatsApp *</label>
-                      <input 
-                        type="tel" name="phone" required
-                        value={formData.phone} onChange={handleChange}
-                        className="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-4 py-2.5 text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300"
-                        placeholder="+1 (555) 000-0000"
-                      />
+                      <div className="flex w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary transition-all duration-300 overflow-hidden">
+                        <div className="bg-surface-container-low/50 border-r border-outline-variant/30 flex-shrink-0 flex items-center relative min-w-[100px] max-w-[45%]">
+                          <select 
+                            name="dialCode"
+                            value={formData.dialCode}
+                            onChange={handleChange}
+                            className="bg-transparent border-none py-2.5 pl-3 pr-6 w-full text-sm text-on-surface font-medium outline-none cursor-pointer truncate"
+                          >
+                            {countries.map((c, idx) => (
+                              <option key={idx} value={c.dial_code}>
+                                {c.name} ({c.dial_code})
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <input 
+                          type="tel" name="phoneNumber" required
+                          value={formData.phoneNumber} onChange={handleChange}
+                          className="w-full bg-transparent border-none px-3 py-2.5 text-sm text-on-surface focus:outline-none"
+                          placeholder="(555) 000-0000"
+                        />
+                      </div>
                     </div>
                   </motion.div>
 
@@ -296,7 +326,7 @@ const AuditModal = ({ isOpen, type = 'audit', onClose }) => {
                           <input 
                             type="radio" name="contactMethod" value={method} required
                             checked={formData.contactMethod === method} onChange={handleChange}
-                            className="w-4 h-4 text-emerald-600 bg-surface-container border-outline-variant/40 focus:ring-emerald-500/40 focus:ring-2"
+                            className="w-4 h-4 text-primary bg-surface-container border-outline-variant/40 focus:ring-primary/40 focus:ring-2"
                           />
                           {method}
                         </label>

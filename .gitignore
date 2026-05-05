@@ -10,6 +10,8 @@ lerna-debug.log*
 # Dependencies
 node_modules
 dist
+/.next
+.vercel
 dist-ssr
 *.local
 
@@ -26,8 +28,10 @@ dist-ssr
 
 # Security: Environment variables and secrets
 .env
+.env.local
 .env*
 !.env.example
+.ai/
 *.pem
 *.key
 *.cert
