@@ -47,3 +47,6 @@ ehthumbs.db
 *.tmp
 *.bak
 *.swp
+
+# Personal Learnings
+learnings/
