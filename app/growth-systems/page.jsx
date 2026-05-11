@@ -2,7 +2,7 @@ import SeoPage from '@/components/SeoPage';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Digital Growth Systems by WebTantu',
+  title: 'Digital Growth Systems',
   description: 'Digital growth systems that combine websites, SEO, AI automation, funnels, analytics, and conversion improvements into one lead engine.',
   path: '/growth-systems',
 });

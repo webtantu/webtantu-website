@@ -7,7 +7,7 @@ import { organizationJsonLd, serviceJsonLd } from '@/data/site';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Contact Us | WebTantu',
+  title: 'Contact Us',
   description: 'Get in touch with WebTantu. Contact us for any inquiries, project discussions, or support related to our web development and digital growth services.',
   path: '/contact',
 });

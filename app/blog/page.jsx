@@ -9,7 +9,7 @@ import { pageMetadata } from '@/lib/seo';
 export const revalidate = 300; // Optimized ISR: Revalidate every 5 minutes
 
 export const metadata = pageMetadata({
-  title: 'WebTantu Blog for SEO and AI Growth',
+  title: 'Blog: SEO and AI Growth',
   description: 'Explore the WebTantu knowledge hub for practical guidance on website performance, SEO, AI automation, and digital growth systems.',
   path: '/blog',
 });

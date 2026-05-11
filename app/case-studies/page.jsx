@@ -7,7 +7,7 @@ import { caseStudies, organizationJsonLd, serviceJsonLd } from '@/data/site';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'WebTantu Case Studies and Results',
+  title: 'Case Studies and Results',
   description: 'Explore WebTantu case studies showing how better websites, SEO, AI automation, and growth systems improve leads and efficiency.',
   path: '/case-studies',
 });

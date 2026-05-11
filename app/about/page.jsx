@@ -6,7 +6,7 @@ import { organizationJsonLd, serviceJsonLd } from '@/data/site';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'About WebTantu Digital Growth Studio',
+  title: 'About Our Digital Growth Studio',
   description: 'Learn why WebTantu exists: to help businesses build faster websites, better SEO visibility, practical automation, and real growth systems.',
   path: '/about',
 });
