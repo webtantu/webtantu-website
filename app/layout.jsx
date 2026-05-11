@@ -1,3 +1,4 @@
+import { organizationJsonLd, serviceJsonLd, siteUrl } from '@/data/site';
 import '../src/index.css';
 import SiteLayoutClient from '@/components/SiteLayoutClient';
 import { ModalProvider } from '@/contexts/ModalContext';
@@ -15,7 +16,7 @@ const manrope = Manrope({
   variable: '--font-manrope',
 });
 
-const siteUrl = 'https://www.webtantu.com';
+
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -40,9 +41,6 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -59,6 +57,11 @@ export const metadata = {
     description: 'High-performance websites, SEO systems, AI automation, and growth systems for modern businesses.',
     creator: '@webtantu',
     images: ['/logo.png'],
+  },
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
 };
 

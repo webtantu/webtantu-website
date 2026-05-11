@@ -18,7 +18,7 @@ const routes = [
 export default async function sitemap() {
   const posts = await getPosts();
   const pages = routes.map((route) => ({
-    url: `${baseUrl}${route}`,
+    url: `${baseUrl}${route}${route === '' ? '/' : ''}`,
     lastModified: new Date(),
     changeFrequency: route === '' ? 'weekly' : 'monthly',
     priority: route === '' ? 1 : 0.8,

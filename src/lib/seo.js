@@ -7,7 +7,7 @@ export function pageMetadata({ title, description, path, image = '/favicon.svg' 
     title,
     description,
     alternates: {
-      canonical: path,
+      canonical: url,
     },
     openGraph: {
       title,

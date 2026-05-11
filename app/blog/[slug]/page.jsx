@@ -33,12 +33,9 @@ export async function generateMetadata({ params }) {
     image: post.mainImage ? urlFor(post.mainImage)?.width(1200).height(630).url() : '/favicon.svg',
   });
 
-  // Add Canonical and Open Graph refinements
+  // Add Open Graph refinements
   return {
     ...meta,
-    alternates: {
-      canonical: `${siteUrl}/blog/${post.slug}`,
-    },
     openGraph: {
       ...meta.openGraph,
       images: [
