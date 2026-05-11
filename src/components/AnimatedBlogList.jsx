@@ -12,7 +12,7 @@ export default function BlogList({ posts }) {
   
   useEffect(() => {
     setIsMounted(true); // eslint-disable-line react-hooks/set-state-in-effect
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!isMounted) return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">{posts.map((_, i) => <div key={i} className="h-96 bg-surface-container rounded-2xl animate-pulse" />)}</div>;
 

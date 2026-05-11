@@ -8,7 +8,7 @@ export default function AnimatedArticle({ children }) {
   
   useEffect(() => {
     setIsMounted(true); // eslint-disable-line react-hooks/set-state-in-effect
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!isMounted) return <div className="opacity-0">{children}</div>;
 

@@ -43,7 +43,7 @@ export default function AboutAnimated({ values }) {
   
   useEffect(() => {
     setIsMounted(true); // eslint-disable-line react-hooks/set-state-in-effect
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!isMounted) return <div className="opacity-0">Loading...</div>;
 
